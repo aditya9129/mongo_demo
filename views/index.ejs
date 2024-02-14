@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: blueviolet;">
+    <h1>All chats</h1>
+    <a href="http://localhost:8000/chat/new">create new chat</a>
+   <% for(chat of chats){%>
+      <div style="background-color: palevioletred;">
+       <h3>from : <%=chat.from%></h3>
+       <h3>to : <%=chat.to%></h3>
+       <p>Message- <%=chat.msg%></p>
+       <form method="get" action="/chat/<%=chat._id%>/edit">
+        <button>edit</button>
+       </form>
+       <form method="post" action="/chat/<%=chat._id%>?_method=DELETE">
+        <button>delete chat</button>
+       </form>
+       <a><%=chat.created_at%></a>
+
+     </div>
+   <%}%>
+</body>
+</html>
